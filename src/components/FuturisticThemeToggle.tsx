@@ -50,18 +50,27 @@ export const FuturisticThemeToggle: React.FC<FuturisticThemeToggleProps> = ({ co
       <button
         id="btn-theme-toggle-compact"
         onClick={handleToggle}
-        title={isDark ? 'Cambiar a Interfaz Blanca (Modo Claro)' : 'Cambiar a Interfaz Oscura (Cyber Dark)'}
-        className={`relative p-2.5 rounded-xl border transition-all duration-300 cursor-pointer transform hover:scale-105 active:scale-95 group ${
+        title={isDark ? 'Modo Oscuro activo • Cambiar a Modo Claro' : 'Modo Claro activo • Cambiar a Modo Oscuro'}
+        className={`relative h-9 px-2.5 rounded-xl border flex items-center gap-1.5 transition-all duration-300 cursor-pointer select-none group active:scale-95 ${
           isDark
-            ? 'bg-slate-900/90 text-cyan-300 border-cyan-500/30 hover:border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:shadow-[0_0_22px_rgba(6,182,212,0.4)]'
-            : 'bg-white text-amber-500 border-amber-400/40 hover:border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.25)] hover:shadow-[0_0_22px_rgba(245,158,11,0.45)]'
+            ? 'bg-slate-900/90 text-cyan-300 border-slate-700/80 hover:border-cyan-500/50 hover:bg-slate-800 shadow-sm hover:shadow-[0_0_15px_rgba(6,182,212,0.25)]'
+            : 'bg-white text-amber-600 border-slate-200 hover:border-amber-400 hover:bg-amber-50/50 shadow-xs hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]'
         }`}
       >
-        {isDark ? (
-          <Moon className="w-4 h-4 transition-transform group-hover:rotate-12 animate-pulse" />
-        ) : (
-          <Sun className="w-4 h-4 transition-transform group-hover:rotate-45 animate-spin-slow" />
-        )}
+        <div className={`w-5 h-5 rounded-lg flex items-center justify-center transition-transform duration-300 ${
+          isDark ? 'bg-cyan-950/80 text-cyan-400 group-hover:rotate-12' : 'bg-amber-100 text-amber-600 group-hover:rotate-45'
+        }`}>
+          {isDark ? (
+            <Moon className="w-3.5 h-3.5 fill-cyan-400/20" />
+          ) : (
+            <Sun className="w-3.5 h-3.5 fill-amber-500/20 animate-spin-slow" />
+          )}
+        </div>
+        <span className={`text-[11px] font-bold font-mono uppercase tracking-wider hidden xl:inline ${
+          isDark ? 'text-slate-300 group-hover:text-cyan-300' : 'text-slate-700 group-hover:text-amber-600'
+        }`}>
+          {isDark ? 'Dark' : 'Claro'}
+        </span>
       </button>
     );
   }
