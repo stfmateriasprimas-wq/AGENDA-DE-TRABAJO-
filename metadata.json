@@ -1,0 +1,10 @@
+{
+  "name": "SyncroWork Pro",
+  "description": "Sistema de programación de trabajo, control de productividad y eficiencia, perfiles de trabajadores, automatización de correos y base de datos con Google Sheets con acceso biométrico y PIN.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
